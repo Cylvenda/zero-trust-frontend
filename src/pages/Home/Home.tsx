@@ -66,13 +66,13 @@ export default function Home() {
             </div>
 
             <div className="bg-white text-[#006F9E] border-b-2 border-gray-400  pb-15">
-                <div className="pt-6 ">
+                <div className="pt-6 mb-10">
                     <h1 className="text-3xl font-bold text-center pt-6 ">Why Using Zero Trust Data Engine?</h1>
-                    <div className="flex mt-7 pl-[10rem] flex-wrap gap-10">
+                    <div className="mt-[3rem] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center gap-10 w-[70%] mx-auto ">
                         {
                             worksItems.map((item: WorksItemsTypes, index: number) => (
-                                <div key={index} className="flex-row">
-                                    <span className="flex flex-row gap-5">{item.icon}<h1>{item.title}</h1></span>
+                                <div key={index} className="flex flex-col ">
+                                    <span className="flex flex-row gap-5 items-center">{item.icon}<h1>{item.title}</h1></span>
                                     <p className="w-[18rem] ml-11 text-justify text-[#757575]">{item.description}</p>
                                 </div>
                             ))
@@ -82,10 +82,14 @@ export default function Home() {
             </div>
 
             <div className="bg-white text-[#006F9E]">
-               <div className="p-[10rem] pt-[5rem] ">
+               <div className="p-[10rem] pt-[5rem] m-auto ">
                    <span className="card-image">
                         <img src={image} className="rounded-2xl h-[20rem] w-[30rem] " alt="Card image" />
                    </span>
+
+                   <div className=" bg-amber-50 h-[20rem] w-[30rem] " >
+
+                   </div>
                </div>
             </div>
         </>
