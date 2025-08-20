@@ -18,6 +18,7 @@ export const registerUser = async ( formData: RegisterFormData ): Promise<Regist
 
 export const loginUser = async ( formData: LoginFormData ): Promise<LoginResponse> => {
   try {
+      // console.log(formData)
     const response = await loginUserApi(formData);
     return response.data; 
   } catch (err) {
