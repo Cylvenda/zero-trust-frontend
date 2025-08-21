@@ -20,8 +20,8 @@ export default function Dashboard() {
     return (
         <>
 
-            <div className="body w-screen h-screen bg-fixed bg-center bg-cover ">
-                <div className=" p-8 flex flex-row gap-5 ">
+            <div className=" w-screen h-screen bg-fixed bg-center bg-cover ">
+                <div className=" p-5 md:p-8 flex flex-col md:flex-row gap-5 ">
                     <Nav/>
 
                     <div className="bg-[#133366]  w-full rounded-[7px] h-[94vh] ">
@@ -35,7 +35,7 @@ export default function Dashboard() {
                                     value={apiToken}
                                     name="createToken"
                                     readOnly
-                                    className="border border-gray-300 w-[30rem] p-2 rounded-l-md bg-white text-[blue] outline-none"
+                                    className="border border-gray-300 w-full md:w-[30rem] p-2 rounded-l-md bg-white text-[blue] outline-none"
                                 />
                                 <button
                                     onClick={() => handleCopy(apiToken)}

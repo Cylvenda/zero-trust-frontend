@@ -1,19 +1,20 @@
 // error response
-export interface ApiErrorResponse {
+export type ApiErrorResponse = {
   error: string;
 }
 
 // register success response
-export interface RegisterResponse {
+export type RegisterResponse = {
   success: boolean;
   message: string;
   user?: [];
 }
 
 // login success response
-export interface LoginResponse {
-  success: boolean;
-  token?: string;
-  message?: string;
-  user?: [];
-}
+export type LoginResponse = {
+    success: boolean;
+    message: string;
+    user?: { username: string; email: string };
+    access_token?: string;
+};
+

@@ -31,8 +31,9 @@ export default function Register() {
     const navigate = useNavigate();
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = event.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
+        const {name, value} = event.target;
+        setFormData((prev) => ({...prev, [name]: value}));
+        console.log(formData)
     };
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -46,11 +47,11 @@ export default function Register() {
                 // console.log(formData)
                 const response = await registerUser(formData);
 
-                if (response) {
-                    toast.success("Login successfully");
+                if (response.success) {
+                    toast.success("Registration completed and Login successfully");
                     navigate("/Dashboard");
                 } else {
-                    toast.error(response || "Login failed.");
+                    toast.error(response.message);
                 }
             }
         } catch (error) {
@@ -63,18 +64,20 @@ export default function Register() {
     return (
         <>
             <div className="body  contrast-100  flex flex-row items-center justify-center">
-                <div className=" bg-white flex flex-row gap-3 p-10 rounded-2xl">
-                    <div
-                        className=" bg-[#133366] h-[27.5rem] w-[25rem] rounded-[5px] flex items-center justify-center p-1">
-                        <h1 onClick={() =>navigate('/')} className=" text-center text-3xl font-bold cursor-pointer"> Welcome <br/> to <br/> Zero-Trust
-                            Data Engine community </h1>
+                <div className=" bg-white flex flex-row gap-3 p-7 md:p-10 rounded-2xl">
+                    <div className="hidden md:block">
+                        <div
+                            className=" bg-[#133366] h-[27.5rem] w-[25rem] rounded-[5px] flex items-center justify-center p-1">
+                            <h1 onClick={() => navigate('/')}
+                                className=" text-center text-3xl font-bold cursor-pointer"> Welcome <br/> to <br/> Zero-Trust
+                                Data Engine community </h1>
+                        </div>
                     </div>
 
-
-                    <form className="text-black" onSubmit={handleSubmit} >
+                    <form className="text-black" onSubmit={handleSubmit}>
                         <h1 className="font-extrabold text-[20px] md:text-2xl">Register</h1>
 
-                        <div className="flex flex-row gap-2 mt-3 ">
+                        <div className="flex flex-col md:flex-row gap-2 mt-3 ">
                             <div className="flex flex-col text-black">
                                 <label htmlFor="FirstName">First Name</label>
                                 <input name="first_name"
@@ -83,7 +86,8 @@ export default function Register() {
                                        value={formData.first_name}
                                        className="w-full border p-1 rounded-[5px] border-black bg-[#D9D9D9] outline-none focus:ring-2 focus:ring-blue-500"
                                        placeholder="Enter First Name"/>
-                                {formErrors.first_name && <small className="text-[red] ml-3">{formErrors.first_name}</small>}
+                                {formErrors.first_name &&
+                                    <small className="text-[red] ml-3">{formErrors.first_name}</small>}
                             </div>
 
                             <div className="flex flex-col text-black">
@@ -94,7 +98,8 @@ export default function Register() {
                                        value={formData.last_name}
                                        className="w-full border p-1 rounded-[5px] border-black bg-[#D9D9D9] outline-none focus:ring-2 focus:ring-blue-500"
                                        placeholder="Last Name"/>
-                                {formErrors.last_name && <small className="text-[red] ml-3">{formErrors.last_name}</small>}
+                                {formErrors.last_name &&
+                                    <small className="text-[red] ml-3">{formErrors.last_name}</small>}
                             </div>
                         </div>
 
@@ -135,7 +140,7 @@ export default function Register() {
                                     onClick={() => setShowPassword(!showPassword)}
                                     className="absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer text-sm text-blue-600"
                                 >
-                                {showPassword ? <EyeClosed /> : <Eye/>}
+                                {showPassword ? <EyeClosed/> : <Eye/>}
                             </span>
                             </div>
                             {formErrors.password && <small className="text-[red] ml-3">{formErrors.password}</small>}
@@ -158,7 +163,8 @@ export default function Register() {
                             {loading ? 'Loading...' : "Register"}
                         </button>
 
-                        <small className="pt-[5rem] ml-4">Already have an account? <span  onClick={()=> navigate('/Login')}
+                        <small className="pt-[5rem] ml-4">Already have an account? <span
+                            onClick={() => navigate('/Login')}
                             className="text-[blue] cursor-pointer">Login</span></small>
                     </form>
                 </div>

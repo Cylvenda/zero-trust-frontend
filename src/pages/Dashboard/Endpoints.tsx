@@ -31,7 +31,7 @@ export default function Endpoints() {
         <>
 
             <div className=" w-screen h-screen bg-fixed bg-center bg-cover " >
-                <div className="  p-8 flex flex-row gap-5 ">
+                <div className="  p-5 md:p-8 flex flex-col md:flex-row gap-5  ">
                     <Nav/>
 
                     <div className="bg-[#133366]  w-full rounded-[7px] h-[94vh] ">
@@ -39,7 +39,7 @@ export default function Endpoints() {
                                     <h2 className="text-4xl mb-4">Quickstarts</h2>
                                     <span>Get started with ZeroTrust</span>
 
-                                    <p className="w-[70%] mt-10">
+                                    <p className="w-full md:w-[70%] mt-10 text-justify">
                                         ZeroTrust provides a unified API that gives you access to hundreds through a
                                         single endpoint, while automatically handling fallbacks
                                         and selecting the most cost-effective options. Get started with just a few lines
@@ -62,7 +62,7 @@ export default function Endpoints() {
                                                     type="text"
                                                     value={item.value}
                                                     readOnly
-                                                    className="border-[1px] border-r-0 border-l-0 border-t-0 border-b-[1px]  font-light border-[#FFFFFF] w-[30rem] p-2  text-[white] outline-none  bg-text-[#006F9E]"
+                                                    className="border-[1px] border-r-0 border-l-0 border-t-0 border-b-[1px]  font-light border-[#FFFFFF] w-full sm:w-[15rem] md:w-[30rem] p-2  text-[white] outline-none  bg-text-[#006F9E]"
                                                 />
                                                 <div
                                                     onClick={() => handleCopy(item.value, index)}

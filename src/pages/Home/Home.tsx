@@ -70,13 +70,13 @@ export default function Home() {
 
     return (
         <>
-            <div className="home contrast-100 min-h-screen flex flex-col">
+            <div className="  contrast-100 h-screen flex flex-col">
                 <header className="flex justify-between bg-white text-[#133366] p-3">
                     <h2 className="font-extrabold text-[20px] md:text-2xl">Zero-Trust Data Engine</h2>
                     <button onClick={() =>navigate('/Login')} className={` hidden md:block ${buttonStyle}`}>Get Started</button>
                 </header>
 
-                <div className="flex-1 flex items-end justify-center pb-8">
+                <div className=" image-bg flex-1 flex items-end justify-center pb-8">
                     <div className="text-center">
                         <h1 onClick={() =>navigate('/')} className="text-white font-bold text-5xl mb-6">
                             Web 3.0 Data storage Engine <br/> For Web 2.0 Apps
