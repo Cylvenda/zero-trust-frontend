@@ -20,7 +20,7 @@ export default function Dashboard() {
     return (
         <>
 
-            <div className=" w-screen h-screen bg-fixed bg-center bg-cover ">
+            <div className="body w-screen h-screen bg-fixed bg-center bg-cover ">
                 <div className=" p-5 md:p-8 flex flex-col md:flex-row gap-5 ">
                     <Nav/>
 
