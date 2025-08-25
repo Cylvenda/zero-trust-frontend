@@ -1,11 +1,14 @@
 import Nav from "../../components/common/Nav.tsx";
 import {useState} from "react";
 import {Copy, CopyCheck} from "lucide-react";
+import { getToken } from "../../services/apiService.ts";
+import { getSession } from "../../utils/storage.ts";
 
 export default function Dashboard() {
 
     const [copied, setCopied] = useState(false);
-    const apiToken  = "fdghekifalesryhhhhfyrrrrrrrrrrghsdelgh";
+    // const apiTokenL  = "fdghekifalesryhhhhfyrrrrrrrrrrghsdelgh";
+    const [apiToken, setApiToken] = useState<string>("");
 
     const handleCopy = async (text: string) => {
         try {
@@ -14,6 +17,16 @@ export default function Dashboard() {
             setTimeout(() => setCopied(false), 2000);
         } catch (err) {
             console.error('Failed to copy text: ', err);
+        }
+    };
+
+    const handleGenerateToken = async () => {
+        try {
+            const response = await getToken(getSession("token"));
+            
+            setApiToken(response.data.accessToken);
+        } catch (error) {
+            console.error("Error fetching API endpoints:", error);
         }
     };
 
@@ -26,7 +39,9 @@ export default function Dashboard() {
 
                     <div className="bg-[#133366]  w-full rounded-[7px] h-[94vh] ">
                         <button
-                            className="bg-white text-black w-fit font-bold rounded p-1.5 cursor-pointer mt-2.5 ml-4">Generate Token </button>
+                            className="bg-white text-black w-fit font-bold rounded p-1.5 cursor-pointer mt-2.5 ml-4"
+                            onClick={handleGenerateToken}
+                        >Generate Token </button>
 
                         <div className="mt-50 flex justify-center">
                             <div className="flex relative">

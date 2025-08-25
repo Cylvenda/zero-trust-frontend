@@ -33,7 +33,7 @@ export default function Register() {
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = event.target;
         setFormData((prev) => ({...prev, [name]: value}));
-        console.log(formData)
+        // console.log(formData)
     };
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
